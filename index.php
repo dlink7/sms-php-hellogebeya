@@ -41,11 +41,11 @@ $arr  = array(
 	'14' => $sms14_account_created
 	);
 
-$p = $_GET['p'];
-$s = $_GET['s'];
+$p = @$_GET['p'];
+$s = @$_GET['s'];
 
-$a = $_GET['a'];
-$b = $_GET['b'];
+$a = @$_GET['a'];
+$b = @$_GET['b'];
 
 if( empty($p) || empty($s) ){
 echo("Empty Parameter: <b>p</b>,<b>s</b><br><br><br>".$help);
@@ -71,20 +71,6 @@ echo("Empty Parameter: <b>p</b>,<b>s</b><br><br><br>".$help);
 }
 
 //count($_GET)==2
-if (!function_exists('http_response_code'))
-{
-    function http_response_code($newcode = NULL)
-    {
-        static $code = 200;
-        if($newcode !== NULL)
-        {
-            header('X-PHP-Response-Code: '.$newcode, true, $newcode);
-            if(!headers_sent())
-                $code = $newcode;
-        }       
-        return $code;
-    }
-}
 
 function send_sms($phone_number,$sms_text)
 {
@@ -94,7 +80,8 @@ $curl = curl_init();
 
 curl_setopt_array($curl, array(
 CURLOPT_RETURNTRANSFER => 1,
-CURLOPT_URL => "http://192.168.1.21:13013/cgi-bin/sendsms?username=simple&password=elpmis&to=$phone_number&text=$sms_text",
+CURLOPT_URL => 
+"http://192.168.1.21:13013/cgi-bin/sendsms?username=simple&password=elpmis&to=$phone_number&from=8192&text=$sms_text",
 CURLOPT_USERAGENT => 'Codular Sample cURL Request')
 );
 
@@ -125,3 +112,4 @@ echo($curl_return_code." ".$resp." (new case)<br>");
 
 
 ?>
+

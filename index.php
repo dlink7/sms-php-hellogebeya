@@ -49,11 +49,14 @@ $s = @$_GET['s'];
 $a = @$_GET['a'];
 $b = @$_GET['b'];
 
+log("Start");
+
 if( empty($p) || empty($s) ){
 echo("Empty Parameter: <b>p</b>,<b>s</b><br><br><br>".$help);
 //send_sms($a,$arr['10']);
+log("Empty paramets");
 }else{
-
+log("Not empty Parameters");
 	$sms_txt = "";
 
 	if ($s=="2" || $s=="3" || $s=="9" || $s=="10") {
@@ -77,7 +80,7 @@ function log($text)
 {
 	$d = date("d-m-y"); 
 	$t = date("H:i:s"); 
-	file_put_contents("/home/luke/sms_gebeya_log/$d.log","$text...$t",  FILE_APPEND | LOCK_EX);
+	file_put_contents("/home/luke/sms_gebeya_log/$d.log","$text...$t\n",  FILE_APPEND | LOCK_EX);
 
 }
 function send_sms($phone_number,$sms_text)

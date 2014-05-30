@@ -76,7 +76,8 @@ echo("Empty Parameter: <b>p</b>,<b>s</b><br><br><br>".$help);
 function log($text)
 {
 	$d = date("d-m-y"); 
-	file_put_contents('/home/luke/sms_gebeya_log/$d.log',$text,  FILE_APPEND | LOCK_EX);
+	$t = date("H:i:s"); 
+	file_put_contents("/home/luke/sms_gebeya_log/$d.log","$text...$t",  FILE_APPEND | LOCK_EX);
 
 }
 function send_sms($phone_number,$sms_text)

@@ -73,7 +73,12 @@ echo("Empty Parameter: <b>p</b>,<b>s</b><br><br><br>".$help);
 }
 
 //count($_GET)==2
+function log($text)
+{
+	$d = date("d-m-y"); 
+	file_put_contents('/home/luke/sms_gebeya_log/$d.log',$text,  FILE_APPEND | LOCK_EX);
 
+}
 function send_sms($phone_number,$sms_text)
 {
 $phone_number = rawurlencode($phone_number);
@@ -97,17 +102,21 @@ if($curl_return_code == "202"){
 
 if($resp == "0: Accepted for delivery"){
 echo("200 (SMS Requested)<br>");
+log("200 ACCEPTED $phone_number");
 header("HTTP/1.1 200 OK");
 }else{
 echo("202 (ETC is Unreachable)<br>");
+log("200 ETC_UNREACHABLE $phone_number");
 header("HTTP/1.1 202 Unreachable");
 }
 
 }elseif($curl_return_code == "0"){
 echo("503 (SMS Gateway is Unavailable)<br>");
+log("503 SMS_GATEWAY_UNAVAILABLE $phone_number");
 header("HTTP/1.1 503 Unavailable");
 }else {
 echo($curl_return_code." ".$resp." (new case)<br>");
+log("NEW_CASE $resp $phone_number");
 }
 #echo $p." ".$c." ".$resp;
 }

@@ -5,6 +5,11 @@
 //print_r($_GET);
 $key1 = "xxx";
 $key2 = "yyy";
+
+$keyA = "zzz"
+$keyB = "fff"
+$keyC = "jjj"
+
 $more_info = "\nFor more information call 8421";
 
 $sms1_confirmation_code = "Your code is $key1. Please enter it on the website";
@@ -22,6 +27,7 @@ $sms12_enable_add = "We are happy to inform you that your Ad item $key1 Title: $
 $sms13_point_transfer_receiver_2 = "You have received $key1 points from $key2. To get your points, please create an account on HelloGebeya.com";
 $sms14_account_created = "Your account has been created. Your password is $key1";
 $sms15_password_changed = "Your password has been changed to $key1";
+$sms17_please_call = "Please call me $key1 regarding your job ad $keyA, $keyB, $keyC";
 
 $help = "Usage :  index.php?<b>p</b>=PHONE_NUMBER&<b>s</b>=CASE_NUMBER(1-14)<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For case 1 and 14 :  Additional Parameter <b>a</b><br>For Cases 4-8 and 11-13 :  Additional Parameters <b>a</b> and <b>b</b><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For the rest Cases :  No Additional Parameters";
 
@@ -40,7 +46,8 @@ $arr  = array(
 	'12' => $sms12_enable_add.$more_info,
 	'13' => $sms13_point_transfer_receiver_2,
 	'14' => $sms14_account_created,
-	'15' => $sms15_password_changed
+	'15' => $sms15_password_changed,
+	'17' => $sms17_please_call
 	);
 
 $p = @$_GET['p'];
@@ -64,8 +71,14 @@ logg("Not empty Parameters");
 	}elseif(($s == "1" || $s == "14" || $s == "15") && !empty($a)){
 			$sms_txt = str_replace($key1, $a, $arr[$s]);
 	}elseif(  ($s == "4" ||$s == "5" ||$s == "6" ||$s == "7"||$s == "8"||$s == "11"||$s == "12"||$s == "13") &&  !empty($a) && !empty($b)){
-			$sms_txt_temp = str_replace($key1, $a, $arr[$s]);
-			$sms_txt = str_replace($key2, $b, $sms_txt_temp);
+			$sms_txt = str_replace($key1, $a, $arr[$s]);
+			$sms_txt = str_replace($key2, $b, $sms_txt);
+	}elseif( ($s == "17") &&  !empty($a) && !empty($b) ){
+		$sms_txt = str_replace($key1, $a, $arr_split[$s]);
+		$arr_split = explode(",", $b);
+		$sms_txt = str_replace($keyA, $arr_split[0], $sms_txt);
+		$sms_txt = str_replace($keyB, $arr_split[1], $sms_txt);
+		$sms_txt = str_replace($keyC, $arr_split[2], $sms_txt);
 	}else{
 		echo($help);
 		exit();

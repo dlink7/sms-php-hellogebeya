@@ -27,7 +27,7 @@ $sms12_enable_add = "We are happy to inform you that your Ad item $key1 Title: $
 $sms13_point_transfer_receiver_2 = "You have received $key1 points from $key2. To get your points, please create an account on HelloGebeya.com";
 $sms14_account_created = "Your account has been created. Your password is $key1";
 $sms15_password_changed = "Your password has been changed to $key1";
-$sms17_please_call = "Please call me $key1 regarding your job ad $keyA, $keyB, $keyC";
+$sms17_please_call = "Please call $key1 regarding your job ad $keyA, $keyB - $keyC";
 
 $help = "Usage :  index.php?<b>p</b>=PHONE_NUMBER&<b>s</b>=CASE_NUMBER(1-14)<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For case 1 and 14 :  Additional Parameter <b>a</b><br>For Cases 4-8 and 11-13 :  Additional Parameters <b>a</b> and <b>b</b><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For the rest Cases :  No Additional Parameters";
 

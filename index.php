@@ -74,7 +74,7 @@ logg("Not empty Parameters");
 			$sms_txt = str_replace($key1, $a, $arr[$s]);
 			$sms_txt = str_replace($key2, $b, $sms_txt);
 	}elseif( ($s == "17") &&  !empty($a) && !empty($b) ){
-		$sms_txt = str_replace($key1, $a, $arr_split[$s]);
+		$sms_txt = str_replace($key1, $a, $arr[$s]);
 		$arr_split = explode(",", $b);
 		$sms_txt = str_replace($keyA, $arr_split[0], $sms_txt);
 		$sms_txt = str_replace($keyB, $arr_split[1], $sms_txt);

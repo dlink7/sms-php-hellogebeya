@@ -100,8 +100,9 @@ function send_sms($phone_number,$sms_text)
 {
 $phone_number = rawurlencode($phone_number);
 $sms_text = rawurlencode($sms_text);
-$curl = curl_init();
 
+$curl = curl_init();
+logg("SMS TEXT: $sms_text");
 curl_setopt_array($curl, array(
 CURLOPT_RETURNTRANSFER => 1,
 CURLOPT_URL => 

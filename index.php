@@ -6,9 +6,9 @@
 $key1 = "xxx";
 $key2 = "yyy";
 
-$keyA = "zzz"
-$keyB = "fff"
-$keyC = "jjj"
+$keyA = "zzz";
+$keyB = "fff";
+$keyC = "jjj";
 
 $more_info = "\nFor more information call 8421";
 

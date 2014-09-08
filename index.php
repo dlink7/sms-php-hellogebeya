@@ -27,6 +27,7 @@ $sms12_enable_add = "We are happy to inform you that your Ad item $key1 Title: $
 $sms13_point_transfer_receiver_2 = "You have received $key1 points from $key2. To get your points, please create an account on HelloGebeya.com";
 $sms14_account_created = "Your account has been created. Your password is $key1";
 $sms15_password_changed = "Your password has been changed to $key1";
+$sms16_account_created_by_operator = "Congratulations! Your account has been created on 8421 HelloGebeya. Your password is $key1";
 $sms17_please_call = "Please call $key1 regarding your job ad $keyA, $keyB - $keyC";
 
 $help = "Usage :  index.php?<b>p</b>=PHONE_NUMBER&<b>s</b>=CASE_NUMBER(1-14)<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For case 1 and 14 :  Additional Parameter <b>a</b><br>For Cases 4-8 and 11-13 :  Additional Parameters <b>a</b> and <b>b</b><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For the rest Cases :  No Additional Parameters";
@@ -47,6 +48,7 @@ $arr  = array(
 	'13' => $sms13_point_transfer_receiver_2,
 	'14' => $sms14_account_created,
 	'15' => $sms15_password_changed,
+	'16' => $sms16_account_created_by_operator,
 	'17' => $sms17_please_call
 	);
 
@@ -68,7 +70,7 @@ logg("Not empty Parameters");
 
 	if ($s=="2" || $s=="3" || $s=="9" || $s=="10") {
 	        $sms_txt = $arr[$s];
-	}elseif(($s == "1" || $s == "14" || $s == "15") && !empty($a)){
+	}elseif(($s == "1" || $s == "14" || $s == "15" || $s == "16") && !empty($a)){
 			$sms_txt = str_replace($key1, $a, $arr[$s]);
 	}elseif(  ($s == "4" ||$s == "5" ||$s == "6" ||$s == "7"||$s == "8"||$s == "11"||$s == "12"||$s == "13") &&  !empty($a) && !empty($b)){
 			$sms_txt = str_replace($key1, $a, $arr[$s]);

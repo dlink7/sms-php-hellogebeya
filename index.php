@@ -13,11 +13,11 @@ $keyC = "jjj";
 $more_info = "\nFor more information call 8421";
 
 $sms1_confirmation_code = "Your code is $key1. Please enter it on the website";
-$sms2_confirmation_congra = "Congratulations! You have been registered on HelloGebeya. You can now post ads on hellogebeya.com";
+$sms2_confirmation_congra = "Congratulations! You have been registered on HelloGebeya. You can now post ads on hellogebeya.com.";
 $sms3_confirmation_inform = "Please check out our other HelloService: 'HelloDoctor'. Call 8896 for 24/7 Medical Advice, Home Visit and Ambulance Transportation";
 $sms4_point_transfer_sender = "You have sent $key1 points to $key2";
 $sms5_point_transfer_reciever = "You have received $key1 points from $key2";
-$sms6_publish_add = "Congratulations! You have published the following Ad item  $key1 Title: $key2";
+$sms6_publish_add = "Congratulations! You have published the following Ad item  $key1 Title: $key2. If you have a CV available please send it to jobs@hellogebeya.com.";
 $sms7_unpublish_add = "The following Ad item $key1 Title: $key2 has been UNPUBLISHED";
 $sms8_modify_add = "The following Ad item $key1 Title: $key2 has been MODIFIED";
 $sms9_disable_account = "Your Account has been DISABLED for non-conformity with the terms and conditions of HelloGebeya";
